@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ContactForm from "@/components/contact/ContactForm";
 import { siteConfig } from "@/lib/site-config";
 
@@ -90,7 +91,9 @@ export default function ContactPage() {
               <p className="text-slate-400 text-sm mb-8 pb-8 border-b border-stone-100">
                 Please complete the form below. The more detail you provide, the more precisely we can match you to relevant opportunities or capital.
               </p>
-              <ContactForm />
+              <Suspense fallback={null}>
+                <ContactForm />
+              </Suspense>
             </div>
           </div>
         </div>

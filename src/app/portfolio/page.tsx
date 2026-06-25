@@ -109,7 +109,7 @@ export default function PortfolioPage() {
                   <p className="font-serif text-2xl text-brand-navy text-center">{p.size}</p>
                   <p className="text-xs text-slate-400 text-center">Estimated Capital</p>
                   <Link
-                    href="/contact"
+                    href={`/contact?project=${encodeURIComponent(p.code)}&title=${encodeURIComponent(p.title)}&region=${encodeURIComponent(p.region)}&size=${encodeURIComponent(p.size)}`}
                     className="w-full text-center border border-brand-navy text-brand-navy text-xs tracking-widest uppercase px-4 py-3 hover:bg-brand-navy hover:text-white transition-all duration-200"
                   >
                     Request Access
@@ -122,12 +122,12 @@ export default function PortfolioPage() {
           {/* Bottom CTA */}
           <div className="mt-16 bg-brand-navy p-12 text-center">
             <p className="overline-label mb-4">Platform Membership</p>
-            <h3 className="font-serif text-3xl text-white mb-4">Access the Full Network</h3>
+            <h3 className="font-serif text-3xl text-white mb-4">Access Full Platform Membership</h3>
             <p className="text-stone-400 text-sm max-w-md mx-auto mb-8">
               Membership is by invitation following accreditation and mandate review. Submit your inquiry to begin.
             </p>
             <Link
-              href="/contact"
+              href="/contact?inquiry=membership"
               className="inline-block bg-brand-gold text-white text-xs tracking-widest uppercase px-8 py-4 hover:bg-amber-700 transition-colors"
             >
               Begin Investor Onboarding

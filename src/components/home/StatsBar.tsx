@@ -1,11 +1,11 @@
 "use client";
 import { useInView } from "@/hooks/useInView";
 
-const stats = [
-  { value: "$200M+", label: "In Facilitated Placements" },
+const stats: { value: string; label: string; sub?: string }[] = [
+  { value: "$25M+", label: "In Facilitated Placements" },
   { value: "150+",   label: "Network Members" },
   { value: "20+",    label: "Years of Experience" },
-  { value: "$5M–$100M+", label: "Typical Deal Size" },
+  { value: "$1M–$5M", label: "Typical Deal Size", sub: "Future: $5M–$100M+" },
 ];
 
 export default function StatsBar() {
@@ -25,6 +25,7 @@ export default function StatsBar() {
             >
               <p className="font-serif text-3xl text-white mb-1">{s.value}</p>
               <p className="text-stone-400 text-xs tracking-wide uppercase">{s.label}</p>
+              {s.sub && <p className="text-stone-500 text-xs mt-1">{s.sub}</p>}
             </div>
           ))}
         </div>
