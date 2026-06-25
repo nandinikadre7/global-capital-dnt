@@ -72,7 +72,7 @@ export default function ContactPage() {
               <div className="border-l-2 border-brand-gold pl-5">
                 <p className="text-brand-charcoal font-semibold text-sm mb-2">Confidentiality Policy</p>
                 <p className="text-slate-500 text-sm leading-relaxed">
-                  All inquiries are governed by strict confidentiality protocols. We do not share your information with third parties without your explicit prior consent.
+                  All inquiries are governed by strict confidentiality protocols. We do not share your information with anyone without your explicit prior consent.
                 </p>
               </div>
 
