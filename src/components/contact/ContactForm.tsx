@@ -221,17 +221,17 @@ export default function ContactForm() {
           />
         </div>
 
-        {/* City */}
+        {/* Country */}
         <div>
-          <label htmlFor="city" className="block text-sm font-medium text-slate-700 mb-1">
-            City <span className="text-red-500">*</span>
+          <label htmlFor="country" className="block text-sm font-medium text-slate-700 mb-1">
+            Country <span className="text-red-500">*</span>
           </label>
           <input
-            id="city"
-            name="city"
+            id="country"
+            name="country"
             type="text"
             required
-            placeholder="Scottsdale"
+            placeholder="United States"
             className="w-full border border-stone-300 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-navy focus:border-transparent transition"
           />
         </div>
@@ -255,17 +255,17 @@ export default function ContactForm() {
           </select>
         </div>
 
-        {/* Country */}
+        {/* City */}
         <div>
-          <label htmlFor="country" className="block text-sm font-medium text-slate-700 mb-1">
-            Country <span className="text-red-500">*</span>
+          <label htmlFor="city" className="block text-sm font-medium text-slate-700 mb-1">
+            City <span className="text-red-500">*</span>
           </label>
           <input
-            id="country"
-            name="country"
+            id="city"
+            name="city"
             type="text"
             required
-            placeholder="United States"
+            placeholder="Scottsdale"
             className="w-full border border-stone-300 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-navy focus:border-transparent transition"
           />
         </div>

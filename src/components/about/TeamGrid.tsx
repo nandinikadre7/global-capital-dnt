@@ -22,7 +22,7 @@ export default function TeamGrid() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex justify-center"><div className="w-full max-w-xs">
           {teamMembers.map((member, i) => (
             <div
               key={member.name}
@@ -32,12 +32,13 @@ export default function TeamGrid() {
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               {/* Photo */}
-              <div className="relative h-72 overflow-hidden mb-5 bg-stone-200">
+              <div className="relative w-full mb-5 bg-stone-200">
                 <Image
                   src={member.photo}
                   alt={member.name}
-                  fill
-                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  width={400}
+                  height={500}
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Hover contact overlay — only for members with contact info */}
                 {member.email && (
@@ -54,13 +55,13 @@ export default function TeamGrid() {
                 )}
               </div>
 
-              <p className="font-serif text-lg text-brand-charcoal mb-0.5">{member.name}</p>
-              <p className="text-brand-gold text-xs tracking-widest uppercase mb-1">{member.role}</p>
-              <p className="text-slate-400 text-xs mb-3">{member.company}</p>
-              <p className="text-slate-500 text-sm leading-relaxed">{member.bio}</p>
+              <p className="font-serif text-lg text-brand-charcoal mb-0.5 text-center">{member.name}</p>
+              <p className="text-brand-gold text-xs tracking-widest uppercase mb-1 text-center">{member.role}</p>
+              <p className="text-slate-400 text-xs mb-3 text-center">{member.company}</p>
+              <p className="text-slate-500 text-sm leading-relaxed text-center">{member.bio}</p>
             </div>
           ))}
-        </div>
+        </div></div>
       </div>
     </section>
   );

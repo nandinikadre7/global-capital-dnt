@@ -14,19 +14,20 @@ export default function CompanyStory() {
           <div
             className={`relative transition-all duration-700 ${inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
           >
-            <div className="relative aspect-[4/5] overflow-hidden">
+            <div className="relative aspect-[4/5] overflow-hidden bg-brand-navy flex items-center justify-center">
               <Image
-                src="/team/joe-dodani.jpeg"
+                src="/logo.png"
                 alt="Global Investor Circle"
-                fill
-                className="object-cover"
+                width={400}
+                height={160}
+                className="object-contain"
               />
             </div>
             {/* Gold frame accent */}
             <div className="absolute -bottom-5 -right-5 w-3/4 h-3/4 border border-brand-gold/40 -z-10" />
             {/* Stat card */}
             <div className="absolute bottom-6 -right-6 bg-brand-navy text-white px-6 py-5 shadow-xl">
-              <p className="font-serif text-3xl mb-0.5">$200M+</p>
+              <p className="font-serif text-3xl mb-0.5">$25M+</p>
               <p className="text-stone-400 text-xs tracking-wide uppercase">Facilitated Placements</p>
             </div>
           </div>
