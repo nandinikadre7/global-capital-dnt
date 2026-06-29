@@ -1,18 +1,64 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import { useInView } from "@/hooks/useInView";
 
-const stats: { value: string; label: string; sub?: string }[] = [
-  { value: "$25M+", label: "In Facilitated Placements" },
-  { value: "150+",   label: "Network Members" },
-  { value: "20+",    label: "Years of Experience" },
-  { value: "$1M–$5M", label: "Typical Deal Size", sub: "Future: $5M–$100M+" },
+function AnimatedStat({
+  to,
+  prefix = "",
+  suffix = "",
+  active,
+}: {
+  to: number;
+  prefix?: string;
+  suffix?: string;
+  active: boolean;
+}) {
+  const [val, setVal] = useState(0);
+  const started = useRef(false);
+
+  useEffect(() => {
+    if (!active || started.current) return;
+    started.current = true;
+    const duration = 1600;
+    let startTime: number | null = null;
+
+    const tick = (ts: number) => {
+      if (!startTime) startTime = ts;
+      const p = Math.min((ts - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setVal(Math.floor(eased * to));
+      if (p < 1) requestAnimationFrame(tick);
+      else setVal(to);
+    };
+
+    requestAnimationFrame(tick);
+  }, [active, to]);
+
+  return (
+    <>
+      {prefix}
+      {val}
+      {suffix}
+    </>
+  );
+}
+
+type Stat =
+  | { type: "animated"; to: number; prefix: string; suffix: string; label: string }
+  | { type: "static"; display: string; label: string };
+
+const stats: Stat[] = [
+  { type: "animated", to: 25, prefix: "$", suffix: "M+", label: "In Facilitated Placements" },
+  { type: "animated", to: 150, prefix: "", suffix: "+", label: "Network Members" },
+  { type: "animated", to: 20, prefix: "", suffix: "+", label: "Years of Experience" },
+  { type: "static", display: "$5M – $100M+", label: "Deal Size Range" },
 ];
 
 export default function StatsBar() {
   const { ref, inView } = useInView();
 
   return (
-    <div ref={ref} className="bg-brand-navy">
+    <div ref={ref} className="bg-brand-navy border-t border-brand-gold/60">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
           {stats.map((s, i) => (
@@ -23,9 +69,14 @@ export default function StatsBar() {
               }`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <p className="font-serif text-3xl text-white mb-1">{s.value}</p>
+              <p className="font-serif text-3xl text-white mb-1">
+                {s.type === "animated" ? (
+                  <AnimatedStat to={s.to} prefix={s.prefix} suffix={s.suffix} active={inView} />
+                ) : (
+                  s.display
+                )}
+              </p>
               <p className="text-stone-400 text-xs tracking-wide uppercase">{s.label}</p>
-              {s.sub && <p className="text-stone-500 text-xs mt-1">{s.sub}</p>}
             </div>
           ))}
         </div>

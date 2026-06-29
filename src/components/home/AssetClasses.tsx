@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useInView } from "@/hooks/useInView";
 
 const investorAssets = [
-  "Income-Producing Residential Portfolios",
+  "Income-Producing Residential",
   "Strategic Land Investments",
   "Master-Planned Communities",
   "Utility-Scale Solar Arrays",
@@ -30,74 +30,83 @@ export default function AssetClasses() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+
           {/* Left — Investors */}
           <div
-            className={`transition-all duration-700 ${inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+            className={`transition-all duration-700 ${
+              inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            }`}
           >
-            <div className="flex items-center gap-3 mb-5">
-              <div className="gold-rule" />
-              <span className="overline-label">For Investors</span>
+            {/* Image */}
+            <div className="relative h-56 overflow-hidden mb-8">
+              <Image
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85"
+                alt="Investor asset classes"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-brand-navy/30" />
+              <div className="absolute bottom-5 left-6">
+                <span className="bg-brand-gold text-white text-xs tracking-widest uppercase px-3 py-1.5">
+                  For Investors
+                </span>
+              </div>
             </div>
+
             <h2 className="font-serif text-4xl text-brand-charcoal leading-tight mb-4">
               Asset Class Coverage
             </h2>
-            <p className="text-slate-500 text-sm leading-relaxed mb-10 max-w-sm">
-              Our network prioritizes premium, resilient asset classes with institutional demand and proven risk-adjusted return profiles.
-            </p>
 
-            {/* Asset list */}
-            <div className="border-t border-stone-200">
+            <div className="flex flex-wrap gap-3 mt-8">
               {investorAssets.map((a) => (
-                <div
+                <span
                   key={a}
-                  className="flex items-center justify-between py-3.5 border-b border-stone-100 group"
+                  className="px-4 py-2.5 border border-stone-200 text-slate-600 text-sm hover:bg-brand-navy hover:text-white hover:border-brand-navy transition-all duration-200 cursor-default"
                 >
-                  <span className="text-slate-700 text-sm group-hover:text-brand-navy transition-colors">{a}</span>
-                  <span className="text-stone-300 group-hover:text-brand-gold transition-colors text-xs">→</span>
-                </div>
+                  {a}
+                </span>
               ))}
             </div>
           </div>
 
           {/* Right — Project Owners */}
           <div
-            className={`transition-all duration-700 delay-200 ${inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
+            className={`transition-all duration-700 delay-200 ${
+              inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+            }`}
           >
-            <div className="flex items-center gap-3 mb-5">
-              <div className="gold-rule" />
-              <span className="overline-label">For Project Owners</span>
+            {/* Image */}
+            <div className="relative h-56 overflow-hidden mb-8">
+              <Image
+                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=85"
+                alt="Project owner deal criteria"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-brand-navy/30" />
+              <div className="absolute bottom-5 left-6">
+                <span className="bg-brand-gold text-white text-xs tracking-widest uppercase px-3 py-1.5">
+                  For Project Owners
+                </span>
+              </div>
             </div>
+
             <h2 className="font-serif text-4xl text-brand-charcoal leading-tight mb-4">
               Deal Criteria
             </h2>
-            <p className="text-slate-500 text-sm leading-relaxed mb-10 max-w-sm">
-              We review institutional and middle-market opportunities across all project lifecycles and geographies.
-            </p>
 
-            {/* Criteria table */}
-            <div className="border-t border-stone-200">
+            <div className="border-t border-stone-200 mt-8">
               {ownerCriteria.map((c) => (
-                <div key={c.label} className="grid grid-cols-2 py-4 border-b border-stone-100">
+                <div
+                  key={c.label}
+                  className="grid grid-cols-2 py-4 border-b border-stone-100 group hover:bg-brand-warm transition-colors duration-150 px-1"
+                >
                   <span className="text-slate-400 text-sm">{c.label}</span>
-                  <span className="text-brand-charcoal text-sm font-medium">{c.value}</span>
+                  <span className="text-brand-charcoal text-sm font-medium group-hover:text-brand-navy transition-colors">
+                    {c.value}
+                  </span>
                 </div>
               ))}
-            </div>
-
-            {/* Image accent */}
-            <div className="mt-10 relative h-52 rounded overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80"
-                alt="City skyline"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-brand-navy/50" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <p className="font-serif text-white text-xl italic">
-                  &ldquo;Off-market. By invitation only.&rdquo;
-                </p>
-              </div>
             </div>
           </div>
         </div>

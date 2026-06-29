@@ -1,16 +1,17 @@
 "use client";
+import Image from "next/image";
 import { useInView } from "@/hooks/useInView";
 
 const steps = [
   {
     n: "01",
     title: "Origination & Vetting",
-    desc: "Strict screening of deal mechanics, asset class fit, and financial feasibility before any outreach.",
+    desc: "Strict screening of deal mechanics, asset class fit, and financial feasibility.",
   },
   {
     n: "02",
     title: "Blind Profile Structuring",
-    desc: "Institutional-grade, non-identifying summaries prepared to protect both parties throughout.",
+    desc: "Non-identifying summaries prepared to protect both parties throughout.",
   },
   {
     n: "03",
@@ -20,7 +21,7 @@ const steps = [
   {
     n: "04",
     title: "Confidential Introduction",
-    desc: "Warm handoff after mutual NDA confirmation. One-on-one, professional, discreet.",
+    desc: "Warm handoff after mutual NDA confirmation — discreet and professional.",
   },
 ];
 
@@ -28,46 +29,64 @@ export default function Methodology() {
   const { ref, inView } = useInView();
 
   return (
-    <section ref={ref} className="py-28 bg-brand-warm">
+    <section ref={ref} className="py-28 bg-brand-warm overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-        {/* Header */}
-        <div
-          className={`max-w-xl mb-20 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-        >
-          <div className="flex items-center gap-3 mb-5">
-            <div className="gold-rule" />
-            <span className="overline-label">Our Process</span>
+          {/* Left — image */}
+          <div
+            className={`relative h-[520px] overflow-hidden transition-all duration-700 ${
+              inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            }`}
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=85"
+              alt="Our private introduction process"
+              fill
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-brand-navy/25" />
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-brand-charcoal leading-tight">
-            How We Work
-          </h2>
-        </div>
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-6 relative">
-          {/* Connecting line */}
-          <div className="hidden md:block absolute top-6 left-[12%] right-[12%] h-px bg-stone-300" />
-
-          {steps.map((step, i) => (
-            <div
-              key={step.n}
-              className={`transition-all duration-700 ${
-                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-              style={{ transitionDelay: `${100 + i * 120}ms` }}
-            >
-              {/* Step number */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="relative z-10 w-12 h-12 rounded-full bg-white border border-stone-300 flex items-center justify-center shadow-sm">
-                  <span className="font-serif text-brand-navy text-sm font-bold">{step.n}</span>
-                </div>
-                <div className="md:hidden flex-1 h-px bg-stone-300" />
-              </div>
-              <h3 className="font-serif text-lg text-brand-charcoal mb-3">{step.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
+          {/* Right — steps */}
+          <div
+            className={`transition-all duration-700 delay-200 ${
+              inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+            }`}
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="gold-rule" />
+              <span className="overline-label">Our Process</span>
             </div>
-          ))}
+            <h2 className="font-serif text-4xl md:text-5xl text-brand-charcoal leading-tight mb-12">
+              How We Work
+            </h2>
+
+            <div className="space-y-8">
+              {steps.map((step, i) => (
+                <div
+                  key={step.n}
+                  className={`flex gap-6 group transition-all duration-700 ${
+                    inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                  }`}
+                  style={{ transitionDelay: `${300 + i * 120}ms` }}
+                >
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white border border-stone-200 flex items-center justify-center shadow-sm group-hover:bg-brand-gold group-hover:border-brand-gold transition-all duration-300">
+                    <span className="font-serif text-brand-navy text-sm font-bold group-hover:text-white transition-colors duration-300">
+                      {step.n}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-lg text-brand-charcoal mb-1.5 group-hover:text-brand-navy transition-colors duration-200">
+                      {step.title}
+                    </h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
