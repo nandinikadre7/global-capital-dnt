@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import ContactForm from "@/components/contact/ContactForm";
+import GHLForm from "@/components/contact/GHLForm";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = {
@@ -92,7 +92,7 @@ export default function ContactPage() {
                 Please complete the form below. The more detail you provide, the more precisely we can match you to relevant opportunities or capital.
               </p>
               <Suspense fallback={null}>
-                <ContactForm />
+                <GHLForm />
               </Suspense>
             </div>
           </div>

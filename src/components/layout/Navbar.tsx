@@ -107,12 +107,12 @@ export default function Navbar() {
             >
               Blogs
             </Link>
-            <Link
+            {/* <Link
               href="/investor-login"
               className="font-cinzel text-sm font-medium uppercase tracking-wider px-5 py-2 border border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white transition-all duration-200"
             >
               Investor Login
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile toggle */}
@@ -154,7 +154,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-4 border-t border-stone-100">
+            {/* <div className="pt-4 border-t border-stone-100">
               <Link
                 href="/investor-login"
                 className="inline-block font-cinzel text-sm font-medium uppercase tracking-wider border border-brand-navy text-brand-navy px-6 py-2.5 hover:bg-brand-navy hover:text-white transition-all"
@@ -162,7 +162,7 @@ export default function Navbar() {
               >
                 Investor Login
               </Link>
-            </div>
+            </div> */}
           </div>
         )}
       </div>
