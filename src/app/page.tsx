@@ -5,7 +5,6 @@ import DualPathCTA from "@/components/home/DualPathCTA";
 import WhyChooseGIC from "@/components/home/WhyChooseGIC";
 import Methodology from "@/components/home/Methodology";
 import AssetClasses from "@/components/home/AssetClasses";
-import BlindCards from "@/components/home/BlindCards";
 import Testimonials from "@/components/home/Testimonials";
 
 export const metadata: Metadata = {
@@ -23,7 +22,6 @@ export default function HomePage() {
       <WhyChooseGIC />
       <Methodology />
       <AssetClasses />
-      <BlindCards />
       <Testimonials />
     </>
   );

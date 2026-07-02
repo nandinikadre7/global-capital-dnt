@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import ProjectOwnerForm from "@/components/contact/ProjectOwnerForm";
+import GHLProjectOwnerForm from "@/components/contact/GHLProjectOwnerForm";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = {
@@ -92,7 +92,7 @@ export default function ProjectOwnerPage() {
                 Please complete the form below. The more detail you provide, the more precisely we can match your project to the right capital sources.
               </p>
               <Suspense fallback={null}>
-                <ProjectOwnerForm />
+                <GHLProjectOwnerForm />
               </Suspense>
             </div>
           </div>
