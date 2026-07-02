@@ -32,7 +32,7 @@ export default function PortfolioPage() {
           <div className="space-y-8">
             <div>
               <h2 className="font-serif text-4xl md:text-5xl text-brand-charcoal mb-8">
-                Building Tomorrow's Investment Portfolio
+                Building Tomorrow&apos;s Investment Portfolio
               </h2>
 
               <div className="space-y-6 text-slate-600 leading-relaxed">
